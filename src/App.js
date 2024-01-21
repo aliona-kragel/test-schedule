@@ -4,7 +4,7 @@ import styles from "./styles/styles.module.scss";
 import ScheduleModal from "./components/ScheduleModal";
 
 function App() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleClick = () => {
     setOpen(true);
   }

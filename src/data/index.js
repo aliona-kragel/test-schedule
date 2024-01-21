@@ -43,3 +43,39 @@ export const breakTime = [
     label: "30 мин"
   },
 ]
+
+export const teachersList = [
+  {
+    id: 1,
+    value: "Белов Лазарь Робертович",
+    label: "Белов Лазарь Робертович"
+  },
+  {
+    id: 2,
+    value: "Рогов Иосиф Иванович",
+    label: "Рогов Иосиф Иванович"
+  },
+  {
+    id: 3,
+    value: "Карпов Евдоким Дамирович",
+    label: "Карпов Евдоким Дамирович"
+  },
+]
+
+export const classroomsList = [
+  {
+    id: 1,
+    value: 201,
+    label: "каб. 201"
+  },
+  {
+    id: 2,
+    value: 202,
+    label: "каб. 202"
+  },
+  {
+    id: 3,
+    value: 301,
+    label: "каб. 301"
+  },
+]

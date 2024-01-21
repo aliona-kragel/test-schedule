@@ -4,7 +4,7 @@ import PopupButtonClose from "../PopupButtonClose";
 import styles from "./styles.module.scss";
 import InputTextForm from "../FormComponents/InputTextForm";
 import SelectForm from "../FormComponents/SelectForm";
-import { timestamp, breakTime } from "../../data";
+import { timestamp, breakTime, teachersList, classroomsList } from "../../data";
 import NumberInputForm from "../FormComponents/NumberInputForm";
 import DateDuration from "../FormComponents/DateDuration";
 import { dataPrettier, getEndTime, getStartTime } from "../../helpers";
@@ -22,6 +22,8 @@ const ScheduleModal = ({ open, setOpen }) => {
       hoursPerDay: 1,
       startTime: getStartTime(),
       endTime: getEndTime(45, 1, 0),
+      teacher: "",
+      classroom: ""
     }
   })
   const { getValues, setValue } = formMethods;
@@ -73,6 +75,10 @@ const ScheduleModal = ({ open, setOpen }) => {
             <SelectForm name="breakTime" options={breakTime} onSelect={selectBreakTime} />
             <NumberInputForm name="hoursPerDay" content="Часов в день" onChange={changeHoursPerDay} />
             <DateDuration name1="startTime" name2="endTime" />
+          </div>
+          <div className={styles.dialog__form_additional}>
+            <SelectForm name="teacher" options={teachersList} placeholder="Выберите преподавателя на это время" />
+            <SelectForm name="classroom" options={classroomsList} placeholder="Аудитория" />
           </div>
         </FormProvider>
       </div>

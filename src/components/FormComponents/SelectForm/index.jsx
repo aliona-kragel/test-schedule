@@ -1,8 +1,8 @@
-import { FormControl, MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./styles.module.scss"
 
-const SelectForm = ({ name, options, onSelect }) => {
+const SelectForm = ({ name, options, onSelect, placeholder }) => {
   const { control, setValue } = useFormContext();
   const handleChange = (value) => {
     if (onSelect) {
@@ -24,7 +24,10 @@ const SelectForm = ({ name, options, onSelect }) => {
             onChange={(e) => handleChange(e.target.value)}
             value={value}
             autoWidth
+            displayEmpty
+            renderValue={value !== "" ? undefined : () => placeholder}
           >
+
             {options.map(option => (
               <MenuItem key={option.id} value={option.value}>{option.label}</MenuItem>
             ))}

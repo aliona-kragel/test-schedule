@@ -21,7 +21,6 @@ export const getStartTime = () => {
 
 export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
   const endTime = new Date();
-  console.log(breakTime)
   endTime.setHours(DEFAULT_START_HOURS, DEFAULT_START_MINUTES + (timestamp * hoursPerDay) + breakTime, 0, 0);
   return formatTime(endTime);
 }
