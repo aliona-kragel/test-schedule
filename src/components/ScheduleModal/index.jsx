@@ -9,6 +9,7 @@ import NumberInputForm from "../FormComponents/NumberInputForm";
 import DateDuration from "../FormComponents/DateDuration";
 import { getEndTime, getStartTime, getStartDate, getEndDate } from "../../helpers";
 import DaysSelector from "../FormComponents/DaysSelector";
+import AddBtn from "../AddBtn";
 
 const ScheduleModal = ({ open, setOpen }) => {
   const formMethods = useForm({
@@ -30,8 +31,11 @@ const ScheduleModal = ({ open, setOpen }) => {
   const { getValues, setValue } = formMethods;
 
   const handleClose = () => {
-    setOpen(false)
-    console.log(getValues())
+    setOpen(false);
+  }
+  const handleClick = () => {
+    setOpen(false);
+    console.log(getValues());
   }
 
   const selectTimestamp = (name, value) => {
@@ -92,6 +96,9 @@ const ScheduleModal = ({ open, setOpen }) => {
             <SelectForm name="classroom" options={classroomsList} placeholder="Аудитория" />
           </div>
         </FormProvider>
+      </div>
+      <div className={styles.dialog__controls}>
+        <AddBtn onClick={handleClick}> Добавить расписание </AddBtn>
       </div>
     </DialogWrapper>
   )

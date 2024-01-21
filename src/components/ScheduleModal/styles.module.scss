@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid $main_text_color;
+    border-bottom: 1px solid $border_color;
     h2{
       color: $main_text_color;
       font-weight: 200;
@@ -27,5 +27,11 @@
       display: flex;
       gap: 30px;
     }
+  }
+  &__controls{
+    padding: 20px;
+    border-top: 1px solid $border_color;
+    display: flex;
+    justify-content: flex-end;
   }
 }
