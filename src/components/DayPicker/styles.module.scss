@@ -12,6 +12,10 @@ button{
   padding: 19px 40px;
   text-transform: uppercase;
   cursor: pointer;
+  &.selected{
+    background-color: $main_color;
+    color: $secondary_color;
+  }
   &:hover{
     background-color: $main_color;
     color: $secondary_color;

@@ -24,7 +24,8 @@ const ScheduleModal = ({ open, setOpen }) => {
       startTime: getStartTime(),
       endTime: getEndTime(45, 1, 0),
       teacher: "",
-      classroom: ""
+      classroom: "",
+      selectedDays: []
     }
   })
   const { getValues, setValue } = formMethods;
