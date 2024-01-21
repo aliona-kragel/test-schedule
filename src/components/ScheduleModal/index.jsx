@@ -8,6 +8,7 @@ import { timestamp, breakTime, teachersList, classroomsList } from "../../data";
 import NumberInputForm from "../FormComponents/NumberInputForm";
 import DateDuration from "../FormComponents/DateDuration";
 import { getEndTime, getStartTime, getStartDate, getEndDate } from "../../helpers";
+import DaysSelector from "../FormComponents/DaysSelector";
 
 
 const ScheduleModal = ({ open, setOpen }) => {
@@ -82,6 +83,9 @@ const ScheduleModal = ({ open, setOpen }) => {
             <SelectForm name="breakTime" options={breakTime} onSelect={selectBreakTime} />
             <NumberInputForm name="hoursPerDay" content="Часов в день" onChange={changeHoursPerDay} />
             <DateDuration name1="startTime" name2="endTime" />
+          </div>
+          <div className={styles.dialog__form_timetable}>
+            <DaysSelector />
           </div>
           <div className={styles.dialog__form_additional}>
             <SelectForm name="teacher" options={teachersList} placeholder="Выберите преподавателя на это время" />
