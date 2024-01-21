@@ -6,6 +6,8 @@ import InputTextForm from "../FormComponents/InputTextForm";
 import SelectForm from "../FormComponents/SelectForm";
 import { timestamp } from "../../data";
 import NumberInputForm from "../FormComponents/NumberInputForm";
+import DateDuration from "../FormComponents/DateDuration";
+import { dataPrettier } from "../../helpers";
 
 
 const ScheduleModal = ({ open, setOpen }) => {
@@ -14,6 +16,8 @@ const ScheduleModal = ({ open, setOpen }) => {
       schoolName: "",
       timestamp: "Академические",
       totalHours: 1,
+      startDate: dataPrettier(new Date()),
+      endDate: dataPrettier(new Date()),
     }
   })
   const { getValues } = formMethods;
@@ -37,6 +41,7 @@ const ScheduleModal = ({ open, setOpen }) => {
           <div className={styles.dialog__form_dates}>
             <SelectForm name="timestamp" options={timestamp} />
             <NumberInputForm name="totalHours" content="Всего часов" />
+            <DateDuration name1="startDate" name2="endDate" />
           </div>
         </FormProvider>
       </div>
