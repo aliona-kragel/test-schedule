@@ -6,6 +6,11 @@ import styles from "./styles.module.scss"
 const NumberInputForm = ({ name, content, onChange }) => {
   const { control, setValue } = useFormContext();
 
+  const handleChange = (value) => {
+    if (onChange) {
+      onChange(name, value);
+    }
+  }
 
   const changeCount = (value) => {
     if (onChange) {
@@ -25,7 +30,7 @@ const NumberInputForm = ({ name, content, onChange }) => {
           <input
             type="text"
             value={value}
-            onChange={(e) => setValue(name, e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
           <span>{content}</span>
           <button onClick={() => changeCount((value >= 24) ? 24 : value + 1)} className={styles.btn}>+</button>
