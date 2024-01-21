@@ -19,9 +19,10 @@ export const getStartTime = () => {
   return formatTime(startTime);
 }
 
-export const getEndTime = (timestamp, hoursPerDay) => {
+export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
   const endTime = new Date();
-  endTime.setHours(DEFAULT_START_HOURS, DEFAULT_START_MINUTES + (timestamp * hoursPerDay), 0, 0);
+  console.log(breakTime)
+  endTime.setHours(DEFAULT_START_HOURS, DEFAULT_START_MINUTES + (timestamp * hoursPerDay) + breakTime, 0, 0);
   return formatTime(endTime);
 }
 

@@ -21,7 +21,7 @@ const ScheduleModal = ({ open, setOpen }) => {
       breakTime: 0,
       hoursPerDay: 1,
       startTime: getStartTime(),
-      endTime: getEndTime(45, 1),
+      endTime: getEndTime(45, 1, 0),
     }
   })
   const { getValues, setValue } = formMethods;
@@ -33,15 +33,25 @@ const ScheduleModal = ({ open, setOpen }) => {
 
   const selectTimestamp = (name, value) => {
     const hoursPerDay = getValues("hoursPerDay");
+    const breakTime = getValues("breakTime");
     setValue(name, value);
-    setValue("endTime", getEndTime(value, hoursPerDay))
+    setValue("endTime", getEndTime(value, hoursPerDay, breakTime))
   }
 
   const changeHoursPerDay = (name, value) => {
     const timestamp = getValues("timestamp");
+    const breakTime = getValues("breakTime");
     setValue(name, value);
-    setValue("endTime", getEndTime(timestamp, value))
+    setValue("endTime", getEndTime(timestamp, value, breakTime))
   }
+
+  const selectBreakTime = (name, value) => {
+    const hoursPerDay = getValues("hoursPerDay");
+    const timestamp = getValues("timestamp");
+    setValue(name, value);
+    setValue("endTime", getEndTime(timestamp, hoursPerDay, value))
+  }
+
 
   return (
     <DialogWrapper open={open} onClose={handleClose}>
@@ -60,7 +70,7 @@ const ScheduleModal = ({ open, setOpen }) => {
             <DateDuration name1="startDate" name2="endDate" />
           </div>
           <div className={styles.dialog__form_timetable}>
-            <SelectForm name="breakTime" options={breakTime} />
+            <SelectForm name="breakTime" options={breakTime} onSelect={selectBreakTime} />
             <NumberInputForm name="hoursPerDay" content="Часов в день" onChange={changeHoursPerDay} />
             <DateDuration name1="startTime" name2="endTime" />
           </div>
