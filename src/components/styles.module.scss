@@ -1,0 +1,19 @@
+@import "../styles/variables.scss" ;
+
+.show__btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid $main_color;
+  padding: 10px;
+  background-color: $main_color;
+  font-size: 18px;
+  color: $secondary_color;
+  cursor: pointer;
+  &:hover{
+    background-color: $hover_color;
+  }
+  &:active{
+    background-color: $active_color;
+  }
+}
