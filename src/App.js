@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ShowModalBtn from "./components/ShowModalBtn";
 import styles from "./styles/styles.module.scss";
+import ScheduleModal from "./components/ScheduleModal";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -13,6 +14,7 @@ function App() {
       <ShowModalBtn onClick={handleClick}>
         Show modal
       </ShowModalBtn>
+      <ScheduleModal open={open} setOpen={setOpen} />
     </div>
   );
 }

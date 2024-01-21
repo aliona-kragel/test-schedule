@@ -1,0 +1,13 @@
+@import "../../styles/variables.scss";
+
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &__close{
+    color: $close_btn_color;
+  }
+}
