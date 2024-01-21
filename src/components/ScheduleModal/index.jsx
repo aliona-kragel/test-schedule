@@ -3,12 +3,15 @@ import DialogWrapper from "../DialogWrapper";
 import PopupButtonClose from "../PopupButtonClose";
 import styles from "./styles.module.scss";
 import InputTextForm from "../FormComponents/InputTextForm";
+import SelectForm from "../FormComponents/SelectForm";
+import { timestamp } from "../../data";
 
 
 const ScheduleModal = ({ open, setOpen }) => {
   const formMethods = useForm({
     defaultValues: {
       schoolName: "",
+      timestamp: "Академические",
     }
   })
   const { getValues } = formMethods;
@@ -26,10 +29,14 @@ const ScheduleModal = ({ open, setOpen }) => {
       </div>
       <div className={styles.dialog__form}>
         <FormProvider {...formMethods}>
-          <InputTextForm name="schoolName" />
+          <div>
+            <InputTextForm name="schoolName" />
+          </div>
+          <div>
+            <SelectForm name="timestamp" options={timestamp} />
+          </div>
         </FormProvider>
       </div>
-
     </DialogWrapper>
   )
 }
