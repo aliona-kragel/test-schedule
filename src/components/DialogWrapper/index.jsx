@@ -9,7 +9,7 @@ const DialogWrapper = ({ open, onClose, children }) => {
       aria-describedby="alert-dialog-slide-description"
       PaperProps={{
         style: {
-          minWidth: "90vw",
+          minWidth: "80vw",
           background: 'rgba(255, 255, 255)',
           border: "2px solid rgba(255, 255, 255, 0.1)",
         },

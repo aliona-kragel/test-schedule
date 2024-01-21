@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import InputTextForm from "../FormComponents/InputTextForm";
 import SelectForm from "../FormComponents/SelectForm";
 import { timestamp } from "../../data";
+import NumberInputForm from "../FormComponents/NumberInputForm";
 
 
 const ScheduleModal = ({ open, setOpen }) => {
@@ -12,6 +13,7 @@ const ScheduleModal = ({ open, setOpen }) => {
     defaultValues: {
       schoolName: "",
       timestamp: "Академические",
+      totalHours: 1,
     }
   })
   const { getValues } = formMethods;
@@ -32,8 +34,9 @@ const ScheduleModal = ({ open, setOpen }) => {
           <div>
             <InputTextForm name="schoolName" />
           </div>
-          <div>
+          <div className={styles.dialog__form_dates}>
             <SelectForm name="timestamp" options={timestamp} />
+            <NumberInputForm name="totalHours" content="Всего часов" />
           </div>
         </FormProvider>
       </div>

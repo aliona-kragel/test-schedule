@@ -1,0 +1,45 @@
+@import "../../../styles/variables.scss";
+
+.wrapper{
+  width: calc(100% / 3 - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $border_color;
+  border-radius: 4px;
+  .btn{
+    height: 100%;
+    background-color:$main_color ;
+    padding: 16.5px 25px;
+    border: none;
+    cursor: pointer;
+    color: $secondary_color;
+    font-size: 16px;
+    &:hover{
+      background-color: $hover_color;
+    }
+    &:active{
+      background-color: $active_color;
+    }
+    &:first-child{
+      border-radius: 3px 0 0 3px;
+    }
+    &:last-child{
+      border-radius: 0 3px 3px 0;
+    }
+  }
+  input{
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    color: $main_text_color;
+    max-width: 150px;
+  }
+  span{
+    border-left: 1px solid $border_color;
+    padding: 10px 15px;
+    text-align: center;
+    color: $main_text_color;
+    background-color: rgb(237, 241, 245);
+  }
+}
