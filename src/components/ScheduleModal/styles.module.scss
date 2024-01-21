@@ -18,9 +18,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    &_dates{
+    &_dates, 
+    &_timetable{
       display: flex;
       justify-content: space-between;
     }
+    
   }
 }

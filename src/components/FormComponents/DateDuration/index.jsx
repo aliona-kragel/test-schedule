@@ -7,7 +7,6 @@ const DateDuration = ({ name1, name2 }) => {
   const handleChangeStart = (value) => {
     setValue(name1, value);
   }
-
   const handleChangeEnd = (value) => {
     setValue(name2, value);
   }

@@ -2,11 +2,16 @@ import { FormControl, MenuItem, Select } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./styles.module.scss"
 
-const SelectForm = ({ name, options }) => {
+const SelectForm = ({ name, options, onSelect }) => {
   const { control, setValue } = useFormContext();
   const handleChange = (value) => {
-    setValue(name, value);
+    if (onSelect) {
+      onSelect(name, value);
+    } else {
+      setValue(name, value);
+    }
   }
+
   return (
     <Controller
       name={name}
@@ -21,7 +26,7 @@ const SelectForm = ({ name, options }) => {
             autoWidth
           >
             {options.map(option => (
-              <MenuItem key={option.id} value={option.label}>{option.label}</MenuItem>
+              <MenuItem key={option.id} value={option.value}>{option.label}</MenuItem>
             ))}
           </Select>
         </FormControl >
