@@ -7,7 +7,7 @@ import SelectForm from "../FormComponents/SelectForm";
 import { timestamp, breakTime, teachersList, classroomsList } from "../../data";
 import NumberInputForm from "../FormComponents/NumberInputForm";
 import DateDuration from "../FormComponents/DateDuration";
-import { dataPrettier, getEndTime, getStartTime } from "../../helpers";
+import { getEndTime, getStartTime, getStartDate, getEndDate } from "../../helpers";
 
 
 const ScheduleModal = ({ open, setOpen }) => {
@@ -16,8 +16,8 @@ const ScheduleModal = ({ open, setOpen }) => {
       schoolName: "",
       timestamp: 45,
       totalHours: 1,
-      startDate: dataPrettier(new Date()),
-      endDate: dataPrettier(new Date()),
+      startDate: getStartDate(),
+      endDate: getEndDate(1, 1),
       breakTime: 0,
       hoursPerDay: 1,
       startTime: getStartTime(),
@@ -43,8 +43,10 @@ const ScheduleModal = ({ open, setOpen }) => {
   const changeHoursPerDay = (name, value) => {
     const timestamp = getValues("timestamp");
     const breakTime = getValues("breakTime");
+    const totalHours = getValues("totalHours");
     setValue(name, value);
-    setValue("endTime", getEndTime(timestamp, value, breakTime))
+    setValue("endTime", getEndTime(timestamp, value, breakTime));
+    setValue("endDate", getEndDate(totalHours, value))
   }
 
   const selectBreakTime = (name, value) => {
@@ -54,6 +56,11 @@ const ScheduleModal = ({ open, setOpen }) => {
     setValue("endTime", getEndTime(timestamp, hoursPerDay, value))
   }
 
+  const changeTotalHours = (name, value) => {
+    const hoursPerDay = getValues("hoursPerDay");
+    setValue(name, value);
+    setValue("endDate", getEndDate(value, hoursPerDay))
+  }
 
   return (
     <DialogWrapper open={open} onClose={handleClose}>
@@ -68,7 +75,7 @@ const ScheduleModal = ({ open, setOpen }) => {
           </div>
           <div className={styles.dialog__form_dates}>
             <SelectForm name="timestamp" options={timestamp} onSelect={selectTimestamp} />
-            <NumberInputForm name="totalHours" content="Всего часов" />
+            <NumberInputForm name="totalHours" content="Всего часов" onChange={changeTotalHours} />
             <DateDuration name1="startDate" name2="endDate" />
           </div>
           <div className={styles.dialog__form_timetable}>
