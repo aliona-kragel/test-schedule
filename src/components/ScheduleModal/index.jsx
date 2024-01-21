@@ -10,22 +10,21 @@ import DateDuration from "../FormComponents/DateDuration";
 import { getEndTime, getStartTime, getStartDate, getEndDate } from "../../helpers";
 import DaysSelector from "../FormComponents/DaysSelector";
 
-
 const ScheduleModal = ({ open, setOpen }) => {
   const formMethods = useForm({
     defaultValues: {
       schoolName: "",
       timestamp: 45,
-      totalHours: 1,
+      totalHours: 3,
       startDate: getStartDate(),
-      endDate: getEndDate(1, 1),
+      endDate: getEndDate(3, 1),
       breakTime: 0,
       hoursPerDay: 1,
       startTime: getStartTime(),
       endTime: getEndTime(45, 1, 0),
       teacher: "",
       classroom: "",
-      selectedDays: []
+      selectedDays: ["пн", "ср", "пт"]
     }
   })
   const { getValues, setValue } = formMethods;

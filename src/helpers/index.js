@@ -1,3 +1,6 @@
+import { daysIndex } from "../data";
+import { addDays } from 'date-fns';
+
 export const DEFAULT_START_HOURS = 7;
 export const DEFAULT_START_MINUTES = 0;
 export const CURRENT_DATE = new Date();
@@ -39,3 +42,9 @@ export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
   return formatTime(endTime);
 }
 
+// export const handleDayOfWeekClick = (day) => {
+//   const dayIndex = daysIndex[day.toLowerCase()];
+//   const newDate = addDays(CURRENT_DATE, dayIndex);
+//   console.log(newDate);
+//   return newDate
+// };

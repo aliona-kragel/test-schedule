@@ -79,3 +79,13 @@ export const classroomsList = [
     label: "каб. 301"
   },
 ]
+
+export const daysIndex = {
+  "пн": 0,
+  "вт": 1,
+  "ср": 2,
+  "чт": 3,
+  "пт": 4,
+  "сб": 5,
+  "вс": 6,
+}
