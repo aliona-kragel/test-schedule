@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./styles.module.scss";
 import DayPicker from "../../DayPicker";

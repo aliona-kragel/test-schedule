@@ -29,6 +29,7 @@ const NumberInputForm = ({ name, content, onChange }) => {
             type="text"
             value={value}
             onChange={(e) => handleChange(e.target.value)}
+            readOnly
           />
           <span>{content}</span>
           <button onClick={() => changeCount(value + 1)} className={styles.btn}>+</button>

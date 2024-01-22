@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, MenuItem, Select } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./styles.module.scss"
 

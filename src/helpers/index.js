@@ -1,5 +1,5 @@
 import { daysIndex } from "../data";
-import { addDays } from 'date-fns';
+import { addDays, addWeeks, format, isBefore, startOfWeek } from 'date-fns';
 
 export const DEFAULT_START_HOURS = 7;
 export const DEFAULT_START_MINUTES = 0;
@@ -15,13 +15,6 @@ export const formatDate = (date) => {
 
 export const getStartDate = () => {
   return formatDate(CURRENT_DATE)
-}
-
-export const getEndDate = (totalHours, hoursPerDay) => {
-  const endDate = new Date(CURRENT_DATE);
-  endDate.setDate(CURRENT_DATE.getDate() + (totalHours / hoursPerDay));
-
-  return formatDate(endDate);
 }
 
 const formatTime = (date) => {
@@ -42,9 +35,15 @@ export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
   return formatTime(endTime);
 }
 
-// export const handleDayOfWeekClick = (day) => {
-//   const dayIndex = daysIndex[day.toLowerCase()];
-//   const newDate = addDays(CURRENT_DATE, dayIndex);
-//   console.log(newDate);
-//   return newDate
-// };
+export const getEndDate = (totalHours, hoursPerDay, selectedDays) => {
+  const currentDate = new Date();
+  const convertedSelectedDays = selectedDays.map(day => daysIndex[day]);
+  const amoumtOfWeek = Math.ceil(totalHours / hoursPerDay / selectedDays.length);
+  let finalDays = [];
+  for (let i = 0; i <= amoumtOfWeek; i++) {
+    const startWeek = startOfWeek(addWeeks(currentDate, i));
+    let daysOfWeek = convertedSelectedDays.map(dayIndex => addDays(startWeek, dayIndex - 1)).filter(date => !isBefore(date, currentDate));
+    finalDays = finalDays.concat(daysOfWeek);
+  }
+  return format(finalDays[totalHours / hoursPerDay - 1], 'dd.MM.yyyy');
+}

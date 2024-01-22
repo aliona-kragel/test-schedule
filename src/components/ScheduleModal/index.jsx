@@ -18,7 +18,7 @@ const ScheduleModal = ({ open, setOpen }) => {
       timestamp: 45,
       totalHours: 3,
       startDate: getStartDate(),
-      endDate: getEndDate(3, 1),
+      endDate: getEndDate(3, 1, ["пн", "ср", "пт"]),
       breakTime: 0,
       hoursPerDay: 1,
       startTime: getStartTime(),
@@ -51,9 +51,10 @@ const ScheduleModal = ({ open, setOpen }) => {
     const timestamp = getValues("timestamp");
     const breakTime = getValues("breakTime");
     const totalHours = getValues("totalHours");
+    const selectedDays = getValues("selectedDays");
     setValue(name, value);
     setValue("endTime", getEndTime(timestamp, value, breakTime));
-    setValue("endDate", getEndDate(totalHours, value))
+    setValue("endDate", getEndDate(totalHours, value, selectedDays))
   }
 
   const selectBreakTime = (name, value) => {
@@ -65,8 +66,9 @@ const ScheduleModal = ({ open, setOpen }) => {
 
   const changeTotalHours = (name, value) => {
     const hoursPerDay = getValues("hoursPerDay");
+    const selectedDays = getValues("selectedDays");
     setValue(name, value);
-    setValue("endDate", getEndDate(value, hoursPerDay))
+    setValue("endDate", getEndDate(value, hoursPerDay, selectedDays))
   }
 
   return (
