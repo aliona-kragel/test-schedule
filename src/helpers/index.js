@@ -38,12 +38,16 @@ export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
 export const getEndDate = (totalHours, hoursPerDay, selectedDays) => {
   const currentDate = new Date();
   const convertedSelectedDays = selectedDays.map(day => daysIndex[day]);
-  const amoumtOfWeek = Math.ceil(totalHours / hoursPerDay / selectedDays.length);
+
+  const amountOfDays = Math.ceil(totalHours / hoursPerDay);
+  const amoumtOfWeek = Math.ceil(amountOfDays / selectedDays.length);
+
   let finalDays = [];
   for (let i = 0; i <= amoumtOfWeek; i++) {
     const startWeek = startOfWeek(addWeeks(currentDate, i));
-    let daysOfWeek = convertedSelectedDays.map(dayIndex => addDays(startWeek, dayIndex - 1)).filter(date => !isBefore(date, currentDate));
+    let daysOfWeek = convertedSelectedDays.map(dayIndex => addDays(startWeek, dayIndex)).filter(date => !isBefore(date, addDays(currentDate, -1)));
     finalDays = finalDays.concat(daysOfWeek);
   }
-  return format(finalDays[totalHours / hoursPerDay - 1], 'dd.MM.yyyy');
+  return format(finalDays[amountOfDays - 1], 'dd.MM.yyyy');
 }
+
