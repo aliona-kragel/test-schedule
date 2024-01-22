@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Shedule-creator Test application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Schedule Creator app is a simple application designed to help users create schedules. It provides a user-friendly interface with various input fields to customize the schedule according to specific requirements.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. Clone this repository to your local machine:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+git clone 'https://github.com/aliona-kragel/test-schedule.git'
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Navigate to the project directory:
 
-### `npm test`
+cd test-schedule
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the necessary dependencies
 
-### `npm run build`
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running the application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run the project, follow these step:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The application consists of:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- One-click access to the schedule creation interface.
+- Modal window with input fields for school name, type of hours (academic or astronomical), total hours in the course, start date, end date, days of the week for classes(alternative day options, manual day selection) , presence of breaks, hours per day, and calculation of class start and end times.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Click on the "Create Schedule" button to open the schedule creation interface.
 
-## Learn More
+2. Fill in the following details in the modal window:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - **School Name**: Enter the name of the school.
+   - **Hour Type**: Choose between academic and astronomical hours.
+   - **Total Hours**: Specify the total number of hours in the course.
+   - **Start Date**: Choose the start date of the course (default is the current date).
+   - **End Date**: Choose the end date of the course.
+   - **Days of the Week**: Select the days on which classes will be held.
+    Choose alternative day options (Monday-Wednesday-Friday, Tuesday-Thursday).
+    Manually select specific days of the week for classes.
+   - **Breaks**: Indicate whether there will be breaks during classes.
+   - **Hours Per Day**: Specify the number of hours to be conducted per day.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. The app will calculate and display the start and end times of the classes based on the provided information.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Click on the "Add Schedule" button to finalize and save the schedule.

@@ -4,7 +4,7 @@ import styles from "./styles/styles.module.scss";
 import ScheduleModal from "./components/ScheduleModal";
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(true);
   }
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className={styles.app}>
       <ShowModalBtn onClick={handleClick}>
-        Show modal
+        Create schedule
       </ShowModalBtn>
       <ScheduleModal open={open} setOpen={setOpen} />
     </div>
