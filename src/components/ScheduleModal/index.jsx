@@ -28,14 +28,16 @@ const ScheduleModal = ({ open, setOpen }) => {
       selectedDays: ["пн", "ср", "пт"]
     }
   })
-  const { getValues, setValue } = formMethods;
+  const { getValues, setValue, reset } = formMethods;
 
   const handleClose = () => {
     setOpen(false);
+    reset()
   }
   const handleClick = () => {
     setOpen(false);
     console.log(getValues());
+    reset()
   }
 
   const selectTimestamp = (name, value) => {
@@ -98,6 +100,7 @@ const ScheduleModal = ({ open, setOpen }) => {
         </FormProvider>
       </div>
       <div className={styles.dialog__controls}>
+        <button onClick={() => reset()} className={styles.dialog__controls_cancelBtn}>Отмена</button>
         <AddBtn onClick={handleClick}> Добавить расписание </AddBtn>
       </div>
     </DialogWrapper>

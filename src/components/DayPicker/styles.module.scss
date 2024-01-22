@@ -17,8 +17,11 @@ button{
     color: $secondary_color;
   }
   &:hover{
-    background-color: $main_color;
+    background-color: $hover_color;
     color: $secondary_color;
+  }
+  &:active{
+    background-color: $active_color;
   }
   &:last-child{
     border-radius: 0 3px 3px 0;
