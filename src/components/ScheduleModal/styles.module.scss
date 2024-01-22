@@ -1,0 +1,53 @@
+@import "../../styles/variables.scss";
+
+.dialog{
+  &__header {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid $border_color;
+    h2{
+      color: $main_text_color;
+      font-weight: 200;
+    }
+  }
+  &__form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &_dates, 
+    &_timetable{
+      display: flex;
+      justify-content: space-between;
+    }
+    &_additional{
+      display: flex;
+      gap: 30px;
+    }
+  }
+  &__controls{
+    padding: 20px;
+    border-top: 1px solid $border_color;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    &_cancelBtn{
+      background: none;
+      color: $main_text_color;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+      &:hover{
+        background: $border_color;
+        color: $secondary_color;
+      }
+      &:active{
+        background: $main_text_color
+      }
+    }
+  }
+}
