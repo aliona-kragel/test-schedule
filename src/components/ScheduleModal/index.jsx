@@ -35,9 +35,9 @@ const ScheduleModal = ({ open, setOpen }) => {
     reset()
   }
   const handleClick = () => {
-    setOpen(false);
     console.log(getValues());
-    reset()
+    reset();
+    setOpen(false);
   }
 
   const selectTimestamp = (name, value) => {
