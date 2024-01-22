@@ -37,6 +37,11 @@ export const getEndTime = (timestamp, hoursPerDay, breakTime) => {
 
 export const getEndDate = (totalHours, hoursPerDay, selectedDays) => {
   const currentDate = new Date();
+
+  if (selectedDays.length === 0) {
+    return format(currentDate, 'dd.MM.yyyy');
+  }
+
   const convertedSelectedDays = selectedDays.map(day => daysIndex[day]);
 
   const amountOfDays = Math.ceil(totalHours / hoursPerDay);
